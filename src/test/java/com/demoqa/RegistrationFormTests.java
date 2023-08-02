@@ -1,10 +1,14 @@
 package com.demoqa;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormTests {
@@ -19,24 +23,41 @@ public class RegistrationFormTests {
 
     @Test
     void fillRegistrationFormTest() {
+        String userName = "Ivanov";
+
         open("/automation-practice-form");
-        $("#firstName").setValue("Ivanov");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+
+        $("#firstName").setValue(userName);
         $("#lastName").setValue("Ivan");
         $("#userEmail").setValue("Ivan@m.ru");
-        $("label[for=gender-radio-3]").click();
+
+        $("#gender-radio-1").parent().click();
+
         $("#userNumber").setValue("0123456789");
+
         $("#dateOfBirthInput").click();
-        $("div[aria-label='Choose Wednesday, July 19th, 2023']").click();
-        $("input[id = subjectsInput]").setValue("ex sub");
-        $("label[for=hobbies-checkbox-2]").click();
-        //$("label[class=form-file-label]").click();
+        $(".react-datepicker__month-select").selectOption("July");
+        $(".react-datepicker__year-select").selectOption("1998");
+        $x("//*[@class='react-datepicker__day react-datepicker__day--030'][not(contains(@class, 'react-datepicker__day--outside-month'))]").click();
+
+        $("#subjectsInput").setValue("Math").pressEnter();
+        $("#hobbies-checkbox-1").parent().click();
+
+        $("#uploadPicture").uploadFromClasspath("img/1.png");
 
         $("#currentAddress").setValue("address");
+
         $("#state").click();
-        $("div[react-select-3-option-0]").shouldHave(Condition.text("NCR"));
+        $("#stateCity-wrapper").$(byText("NCR")).click();
 
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
 
+        $("#submit").click();
 
-
+        $(".modal-dialog").should(appear);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text(userName), text("Ivan"), text("Ivan@m.ru"), text("0123456789"));
     }
 }
