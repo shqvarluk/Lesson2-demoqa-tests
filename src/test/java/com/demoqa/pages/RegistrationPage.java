@@ -98,9 +98,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage saveProfile() {
+    public void saveProfile() {
         saveButton.click();
-        return this;
     }
 
     public RegistrationPage checkResultTableVisible(String text) {
