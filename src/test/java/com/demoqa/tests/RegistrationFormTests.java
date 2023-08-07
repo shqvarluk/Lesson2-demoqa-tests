@@ -48,7 +48,5 @@ public class RegistrationFormTests extends TestBase {
                 .checkResult("Petr")
                 .checkResult("petrov@bk.ru")
                 .checkResult("9876543210");
-
-
     }
 }
