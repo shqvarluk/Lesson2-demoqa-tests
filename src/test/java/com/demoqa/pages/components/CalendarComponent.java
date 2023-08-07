@@ -3,32 +3,31 @@ package com.demoqa.pages.components;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class CalendarComponent {
 
-    SelenideElement monthSelector =
-            $(".react-datepicker__month-select"),
+    SelenideElement
+
+
+            monthSelector = $x("//*[@class='react-datepicker__month-select']"),
             yearSelector = $(".react-datepicker__year-select");
 
-    private CalendarComponent setMonth(String month) {
+    public void setMonth(String month) {
         monthSelector.selectOption(month);
-        return this;
     }
 
-    private CalendarComponent setYear(String year) {
+    private void setYear(String year) {
         yearSelector.selectOption(year);
-        return this;
     }
 
-    private CalendarComponent setDay(String day) {
+    private void setDay(String day) {
         $(".react-datepicker__day--0" + day + ":not(.react-datepicker__day--outside-month)").click();
-        return this;
     }
 
-    public CalendarComponent setDateUpd(String month, String year, String day) {
+    public void setDateUpd(String day, String month, String year) {
         setMonth(month);
         setYear(year);
         setDay(day);
-        return this;
     }
 }
