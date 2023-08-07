@@ -3,12 +3,10 @@ package com.demoqa.pages.components;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
 
 public class CalendarComponent {
 
     SelenideElement
-
 
             monthSelector = $(".react-datepicker__month-select"),
             yearSelector = $(".react-datepicker__year-select");
@@ -29,5 +27,6 @@ public class CalendarComponent {
         setMonth(month);
         setYear(year);
         setDay(day);
+        return this;
     }
 }

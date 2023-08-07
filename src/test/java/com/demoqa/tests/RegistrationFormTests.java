@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 
 public class RegistrationFormTests extends TestBase {
 
-        RegistrationPage registrationPage = new RegistrationPage();
-
     @Test
     void successRegistrationFormTest() {
+        RegistrationPage registrationPage = new RegistrationPage();
+
         registrationPage.openPage()
                 .setFirstName("Ivanov")
                 .setLastName("Ivan")
@@ -32,10 +32,11 @@ public class RegistrationFormTests extends TestBase {
 
     }
 
-    RegistrationPage registrationPage1 = new RegistrationPage();
     @Test
     void successRegistrationFormMinimalTest() {
-        registrationPage1.openPage()
+        RegistrationPage registrationPage = new RegistrationPage();
+
+        registrationPage.openPage()
                 .setFirstName("Petrov")
                 .setLastName("Petr")
                 .setEmail("petrov@bk.ru")
@@ -44,7 +45,7 @@ public class RegistrationFormTests extends TestBase {
                 .setDateBirth("29", "December", "2000")
                 .saveProfile();
 
-        registrationPage1.checkResultTableVisible("Thanks for submitting the form")
+        registrationPage.checkResultTableVisible("Thanks for submitting the form")
                 .checkResult("Petrov")
                 .checkResult("Petr")
                 .checkResult("petrov@bk.ru")
