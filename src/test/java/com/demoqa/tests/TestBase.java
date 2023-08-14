@@ -10,7 +10,6 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadTimeout = 240000;
-        Configuration.holdBrowserOpen = true;
     }
 
 }
