@@ -13,7 +13,7 @@ public class TestDataMethods {
     private static final String[] SUBJECTS =  {"Accounting", "Arts", "Biology", "Chemistry", "Civics", "Economics",
             "English", "Commerce", "Computer Science", "Physics", "Maths", "Hindi", "History", "Social Studies"};
     private static final String[] HOBBIES =  {"Sports", "Reading", "Music"};
-    private static final String[] STATES =  {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
+    private static final String[] STATES =  {"NCR", "Uttar Pradesh", "Haryana"};
 
     public static String getRandomArrayItem(String[] array) {
         return new Faker().options().option(array);
@@ -36,7 +36,7 @@ public class TestDataMethods {
     }
 
     public static String getRandomPhone() {
-        return faker.numerify("###########");
+        return faker.numerify("##########");
     }
 
     public static String getRandomMonth() {
@@ -46,9 +46,9 @@ public class TestDataMethods {
     public static String getRandomYear() {
         return new Faker().random().nextInt(1980, 2001).toString();
     }
-
     public static String getRandomDay() {
-        return new SimpleDateFormat("dd").format(new Faker().random().nextInt(1, 28).toString());
+        int result = new Faker().random().nextInt(1,28);
+        return new SimpleDateFormat("dd").format(result);
     }
 
     public static String getRandomSubject() {
@@ -80,11 +80,7 @@ public class TestDataMethods {
             case ("Haryana"):
                 cities = new String[]{"Karnal", "Panipat"};
                 return getRandomArrayItem(cities);
-            case ("Rajasthan"):
-                cities = new String[]{"Jaipur", "Jaiselmer"};
-                return getRandomArrayItem(cities);
         }
         return null;
     }
-
 }
