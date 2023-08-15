@@ -13,7 +13,7 @@ public class TestDataMethods {
     private static final String[] SUBJECTS =  {"Accounting", "Arts", "Biology", "Chemistry", "Civics", "Economics",
             "English", "Commerce", "Computer Science", "Physics", "Maths", "Hindi", "History", "Social Studies"};
     private static final String[] HOBBIES =  {"Sports", "Reading", "Music"};
-    private static final String[] STATES =  {"NCR", "Uttar Pradesh", "Haryana"};
+    private static final String[] STATES =  {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
 
     public static String getRandomArrayItem(String[] array) {
         return new Faker().options().option(array);
@@ -80,6 +80,9 @@ public class TestDataMethods {
             case ("Haryana"):
                 cities = new String[]{"Karnal", "Panipat"};
                 return getRandomArrayItem(cities);
+            case ("Rajasthan"):
+                cities = new String[]{"Jaipur", "Jaiselmer"};
+                return new Faker().options().option(cities);
         }
         return null;
     }
