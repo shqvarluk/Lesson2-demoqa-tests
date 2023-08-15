@@ -8,8 +8,6 @@ import static com.demoqa.utils.TestDateProperties.*;
 public class RegistrationFormWithFakerTests extends TestBase {
     @Test
     void successRegistrationFormTest() {
-
-
         RegistrationPage registrationPage = new RegistrationPage();
 
         registrationPage.openPage()

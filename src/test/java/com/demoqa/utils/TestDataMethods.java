@@ -7,6 +7,17 @@ import java.text.SimpleDateFormat;
 import static com.demoqa.utils.TestDateProperties.*;
 
 public class TestDataMethods {
+    private static final String[] GENDERS =  {"Male", "Female", "Other"};
+    private static final String[] MONTHS =  {"January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"};
+    private static final String[] SUBJECTS =  {"Accounting", "Arts", "Biology", "Chemistry", "Civics", "Economics",
+            "English", "Commerce", "Computer Science", "Physics", "Maths", "Hindi", "History", "Social Studies"};
+    private static final String[] HOBBIES =  {"Sports", "Reading", "Music"};
+    private static final String[] STATES =  {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
+
+    public static String getRandomArrayItem(String[] array) {
+        return new Faker().options().option(array);
+    }
 
     public static String getRandomFirstName() {
         return faker.name().firstName();
@@ -21,9 +32,7 @@ public class TestDataMethods {
     }
 
     public static String getRandomGender() {
-        String[] genders =  {"Male", "Female", "Other"};
-
-        return new Faker().options().option(genders);
+        return getRandomArrayItem(GENDERS);
     }
 
     public static String getRandomPhone() {
@@ -31,10 +40,7 @@ public class TestDataMethods {
     }
 
     public static String getRandomMonth() {
-        String[] months =  {"January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"};
-
-        return new Faker().options().option(months);
+        return getRandomArrayItem(MONTHS);
     }
 
     public static String getRandomYear() {
@@ -46,16 +52,11 @@ public class TestDataMethods {
     }
 
     public static String getRandomSubject() {
-        String[] subjects =  {"Accounting", "Arts", "Biology", "Chemistry", "Civics", "Economics",
-                "English", "Commerce", "Computer Science", "Physics", "Maths", "Hindi", "History", "Social Studies"};
-
-        return new Faker().options().option(subjects);
+        return getRandomArrayItem(SUBJECTS);
     }
 
     public static String getRandomHobie() {
-        String[] hobbies =  {"Sports", "Reading", "Music"};
-
-        return new Faker().options().option(hobbies);
+        return getRandomArrayItem(HOBBIES);
     }
 
     public static String getRandomAddress() {
@@ -63,26 +64,25 @@ public class TestDataMethods {
     }
 
     public static String getRandomState() {
-        String[] states =  {"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-
-        return new Faker().options().option(states);
+        return getRandomArrayItem(STATES);
     }
+
 
     public static String getRandomCity(String state) {
         String[] cities;
         switch (state) {
             case  ("NCR"):
                 cities = new String[]{"Delhi", "Gurgaon", "Noida"};
-                return new Faker().options().option(cities);
+                return getRandomArrayItem(cities);
             case ("Uttar Pradesh"):
                 cities = new String[]{"Agra", "Lucknow", "Merrut"};
-                return new Faker().options().option(cities);
+                return getRandomArrayItem(cities);
             case ("Haryana"):
                 cities = new String[]{"Karnal", "Panipat"};
-                return new Faker().options().option(cities);
+                return getRandomArrayItem(cities);
             case ("Rajasthan"):
                 cities = new String[]{"Jaipur", "Jaiselmer"};
-                return new Faker().options().option(cities);
+                return getRandomArrayItem(cities);
         }
         return null;
     }
