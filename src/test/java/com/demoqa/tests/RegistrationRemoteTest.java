@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.demoqa.utils.TestDateProperties.*;
 
-public class RegistrationRemoteTest extends TestBase {
+public class RegistrationRemoteTest extends RemoteTestBase {
 
     @Test
     @Tag("remote")
