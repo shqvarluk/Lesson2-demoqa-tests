@@ -14,6 +14,7 @@ public class RegistrationRemoteTest extends RemoteTestBase {
         RegistrationPage registrationPage = new RegistrationPage();
 
         registrationPage.openPage()
+                .closeBanners()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
