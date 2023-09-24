@@ -38,6 +38,7 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
+    useJUnitPlatform()
     systemProperties(System.getProperties())
 
     testLogging {
@@ -46,10 +47,6 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
-}
-
-test {
-    useJUnitPlatform()
 }
 
 task simple_test(type: Test) {
@@ -67,5 +64,11 @@ task remote_test(type: Test) {
 task property_test(type: Test) {
     useJUnitPlatform{
         includeTags("property")
+    }
+}
+
+task hello_test(type: Test) {
+    useJUnitPlatform{
+        includeTags("hello")
     }
 }

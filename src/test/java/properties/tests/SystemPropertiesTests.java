@@ -35,4 +35,13 @@ public class SystemPropertiesTests {
 
         System.out.println(browser);
     }
+
+    @Test
+    @Tag("hello")
+    void systemPropertiesTest5() {
+        String name = System.getProperty("name", "default student");
+        String message = String.format("Hello, %s!", name);
+
+        System.out.println(message);
+    }
 }
