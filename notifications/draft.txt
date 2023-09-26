@@ -1,0 +1,6 @@
+name = hainill_allert_example_bot
+token = 6511337258:AAHLR4BekTRMfAX0RDzh-S89-I9AWc7Xcok
+
+https://api.telegram.org/bot6511337258:AAHLR4BekTRMfAX0RDzh-S89-I9AWc7Xcok/getUpdates
+
+java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.4.0.jar
